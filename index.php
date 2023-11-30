@@ -9,6 +9,8 @@ $api_php = true;
 
 $parts = explode("/", $_SERVER["REQUEST_URI"]);
 
+$onsite = true;
+
 // gestion des redirections du Forum
 if ($parts[1] == "Forum") {
     if ($parts[2] == "home") {
@@ -22,11 +24,19 @@ if ($parts[1] == "Forum") {
     } else {
         header("Location: /Forum/home");
     }
+} else {
+    $onsite = false;
 }
 
 // gestion des redirections de l'API en php si activé
 if ($api_php) {
     if ($parts[1] == "apiForum") {
         include("api-php/api_php.php");
+        exit();
     }
+    $onsite = false;
+}
+
+if (!$onsite) {
+    header("Location: /Forum/home");
 }
