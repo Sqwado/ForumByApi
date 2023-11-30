@@ -184,7 +184,7 @@ export function openmessage(id_topic) {
 let selectedTopic = 0;
 
 async function fetch_tags() {
-    const tagsload = await fetch("http://localhost:" + api_port + "/apiForum/tags", {
+    const tagsload = await fetch(window.location.origin + api_port + "/apiForum/tags", {
         method: "GET",
         headers: {
             Accept: "application/json",
@@ -583,7 +583,7 @@ CreateMessage.addEventListener("submit", async (event) => {
 
     if (message != "") {
 
-        const response = await fetch("http://localhost:" + api_port + "/apiForum/messages", {
+        const response = await fetch(window.location.origin + api_port + "/apiForum/messages", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -605,7 +605,7 @@ CreateMessage.addEventListener("submit", async (event) => {
 const tagDropdown = document.getElementById("tag-dropdown");
 
 async function post_tag() {
-    const tagsload = await fetch("http://localhost:" + api_port + "/apiForum/tags", {
+    const tagsload = await fetch(window.location.origin + api_port + "/apiForum/tags", {
         method: "GET",
         headers: {
             Accept: "application/json",
@@ -640,7 +640,7 @@ form.addEventListener("submit", async (event) => {
         return;
     }
 
-    const response = await fetch("http://localhost:" + api_port + "/apiForum/topics", {
+    const response = await fetch(window.location.origin + api_port + "/apiForum/topics", {
         method: "POST",
         headers: {
             "Accept": "application/json",
@@ -697,7 +697,7 @@ const div_text_connect = document.querySelector(".div_text_connect");
 let profil_picture = document.getElementById("profil_picture")
 
 async function get_pp() {
-    const tagsload = await fetch("http://localhost:" + api_port + "/apiForum/pp/" + storageUser.id_imagepp, {
+    const tagsload = await fetch(window.location.origin + api_port + "/apiForum/pp/" + storageUser.id_imagepp, {
         method: "GET",
         headers: {
             Accept: "application/json",
