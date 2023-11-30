@@ -24,6 +24,7 @@ if ($parts[1] == "Forum") {
     } else {
         header("Location: /Forum/home");
     }
+    exit();
 } else {
     $onsite = false;
 }
